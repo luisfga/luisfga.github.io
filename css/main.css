@@ -1,129 +1,116 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 13/07/2020, 15:03:55
-    Author     : Luis
-*/
-
 * {
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
 }
 
 body{
-    --border-style: solid;
-    --border-thickness: 5px;
-    --text-color: #000000;
-    --main-border-color: #559999;
-    --background-color: #cccccc;
-    background-color: var(--background-color);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Courier', monospace;
+    background: lightgray;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin:			1.25em 0 0 0;
-    font-variant:		small-caps;
-    line-height:		1.1em;
-}
-h1 { font-size: 2em; margin:    .6em 0; }
-h2 { font-size: 1.75em; }
-h3 { font-size: 1.5em;  }
-h4 { font-size: 1.33em; }
-h5 { font-size: 1.25em; }
-h6 { font-size: 1.15em; }
-
-p {
-    text-indent:		2.5em;
-}
-p.noindent {
-    text-indent:		0;
-}
+h1,h2,h3,h4,h5,h6{margin: 0;}
 
 a {
     text-decoration: none;
-    color: var(--text-color);
 }
 a:visited {
     text-decoration: none;
-    color: var(--text-color);
-
 }
 
-p.menu_option:hover{
-    background: #CCCCCC;
-}
-p.menu_option_selected {
-    font-weight: 700;
+#logo-container{
+    position: relative;
+    z-index: 10;
 }
 
-#header {
-    padding: 10px;
-    border: var(--border-thickness);
-    border-style: var(--border-style);
-    border-color: var(--main-border-color);
-    text-align: center;
+#logo{
+    padding: 5px 10px 0px 10px;
+    border: black 1px solid;
+    border-radius: 45px;
+    display: inline-block;
+    position: absolute;
+    background-color: cornflowerblue;
 }
-
-#menu {
-    display: none;
-    text-align: start;
-    padding: 10px;
-    border: var(--border-thickness);
-    border-left-style: var(--border-style);
-    border-bottom-style: var(--border-style);
-    border-color: var(--main-border-color);
-    background-color: var(--main-border-color);
-}
-#menu_switch_icon {
+#logo-title {
     float: right;
-    padding: 10px 15px;
+    font-size: 35px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
 }
-#menu_switch_icon:hover {
-    background: var(--main-border-color);
+#logo-dropdown-menu-icon {
+    float: left;
+}
+.phantom-place-holder{
+    margin-bottom: 65px;
+}
+.icon{
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border: black 1px solid;
+    border-radius: 45px;
+    background-color: white;
+    color: blue;
+}
+#menu{
+    padding: 5px;
+    border: black 1px solid;
+    border-radius: 45px;
+    display: inline-block;
+    position: absolute;
+    background-color: gray;
+}
+#menu div{
+    /*margin-top: 5px;*/
+}
+.hidden-text{
+    display: none;
 }
 
-#main {
-    padding:			10px 5% 5% 5%;
-    border: var(--border-thickness);
-    border-left-style: var(--border-style);
-    border-color: var(--main-border-color);
-    text-align: justify;
-    text-justify: inter-word;
+.selected{
+    background-color: cornflowerblue;
 }
 
+#content{
+    margin: 0;
+    z-index: -1;
+    padding-top: 100px;
+    padding-left: 100px;
+}
 
 
 
 @media only screen and (min-width: 768px) {
-  /* For large devices: */
-  
-    p {
-        text-indent:		5em;
+    /* For large devices: */
+
+    #menu{
+        padding: 5px 5px 0px 10px;
+        border: black 1px solid;
+        border-radius: 45px;
+        display: inline-block;
+        position: absolute;
+    }
+    #menu div{
+        float: left;
+        margin-top: .1px;
+    }
+    #menu .menu-item{
+                padding-left: 10px;
+    }
+    .phantom-place-holder{
+        margin-left: 225px;
+        margin-bottom: 0px;
     }
     
-    #header {
-        padding: 10px;
-        border-style: var(--border-style);
-        border-color: var(--main-border-color);
-        text-align: center;
-    }
-
-    #menu {
-        display: block;
-        float: right;
-        width: 30%;
-    }
-    #menu_switch_icon {
+    .hidden-text{
         display: none;
+        padding: 10px;
+        position: absolute;
     }
-
-    #main {
-        float: left;
-        width: 70%;
-        border: var(--border-thickness);
-        border-left-style: var(--border-style);
-        border-color: var(--main-border-color);
-    }  
+    .menu-item img:hover + .hidden-text{
+        display: block;
+    }
+    
+    #content{
+        padding-left: 25px;
+    }
 }

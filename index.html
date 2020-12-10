@@ -4,31 +4,62 @@
         <title>LuisFGA</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" media="all" id="sslink" href="css/main.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="javascript/scripts.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="css/main.css">
+        <link rel="icon" type="image/png" href="images/favicon.ico"/>
     </head>
     
     <body>
-        
-        <div id="header">
-            <h1>luisfga</h1>
+        <div id="logo-container">
+            <div id="logo">
+                <div id="logo-dropdown-menu-icon"><img src="images/icons/menu-bars.png" class="icon"/></div>
+                <div id="logo-title">Luisfga</div>
+            </div>
         </div>
-
-        <a href="javascript:showHideNavMenu();" id="menu_switch_icon">
-            <i class="fa fa-bars"></i>
-        </a>
         <div id="menu">
-                <a><p class="menu_option_selected">Home</p></a>
-                <a href="pages/cripto.html"><p class="menu_option">Criptografia</p></a>
-                <a href="pages/gpg.html"><p class="menu_option">GnuPG</p></a>
-
+            <div class="phantom-place-holder"></div>
+            <div class="menu-item">
+                <img src="images/icons/home.png" class="icon selected" onclick="load('home');setSelected(this);"/>
+                <div class="hidden-text">Home</div>
+            </div>
+            <div class="menu-item">
+                <img src="images/icons/cv.png" class="icon" onclick="load('cv');setSelected(this);"/>
+                <div class="hidden-text">Currículo</div>
+            </div>
+            <div class="menu-item">
+                <img src="images/icons/java.png" class="icon" onclick="load('java');setSelected(this);"/>
+                <div class="hidden-text">Java</div>
+            </div>
         </div>
-
-        
-        <div id="main">
-<h2>Bem vindo!</h2>
+        <div id="content">
+            <h2>Bem-vindo!</h2>
         </div>
-
     </body>
+    <script>
+        function load(page){
+            var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            
+            if(page === 'home'){
+                xhr.open("get", "pages/home.html", true);
+            } else if(page === 'cv'){
+                xhr.open("get", "pages/cv.html", true);
+            } else if(page === 'java'){
+                xhr.open("get", "pages/java.html", true);
+            } else {
+                return;
+            }
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var content = document.getElementById("content");
+                    content.innerHTML = xhr.responseText;
+                } 
+            }
+            xhr.send();
+        }
+        function setSelected(newSelectedItem){
+            var exSelected = document.getElementsByClassName("selected");
+            exSelected[0].classList.remove("selected");
+            newSelectedItem.classList.add("selected");
+        }
+    </script>
 </html>
