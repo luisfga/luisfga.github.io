@@ -1,0 +1,129 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13/07/2020, 15:03:55
+    Author     : Luis
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+    --border-style: solid;
+    --border-thickness: 5px;
+    --text-color: #000000;
+    --main-border-color: #559999;
+    --background-color: #cccccc;
+    background-color: var(--background-color);
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin:			1.25em 0 0 0;
+    font-variant:		small-caps;
+    line-height:		1.1em;
+}
+h1 { font-size: 2em; margin:    .6em 0; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.5em;  }
+h4 { font-size: 1.33em; }
+h5 { font-size: 1.25em; }
+h6 { font-size: 1.15em; }
+
+p {
+    text-indent:		2.5em;
+}
+p.noindent {
+    text-indent:		0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+a:visited {
+    text-decoration: none;
+    color: var(--text-color);
+
+}
+
+p.menu_option:hover{
+    background: #CCCCCC;
+}
+p.menu_option_selected {
+    font-weight: 700;
+}
+
+#header {
+    padding: 10px;
+    border: var(--border-thickness);
+    border-style: var(--border-style);
+    border-color: var(--main-border-color);
+    text-align: center;
+}
+
+#menu {
+    display: none;
+    text-align: start;
+    padding: 10px;
+    border: var(--border-thickness);
+    border-left-style: var(--border-style);
+    border-bottom-style: var(--border-style);
+    border-color: var(--main-border-color);
+    background-color: var(--main-border-color);
+}
+#menu_switch_icon {
+    float: right;
+    padding: 10px 15px;
+}
+#menu_switch_icon:hover {
+    background: var(--main-border-color);
+}
+
+#main {
+    padding:			10px 5% 5% 5%;
+    border: var(--border-thickness);
+    border-left-style: var(--border-style);
+    border-color: var(--main-border-color);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+  /* For large devices: */
+  
+    p {
+        text-indent:		5em;
+    }
+    
+    #header {
+        padding: 10px;
+        border-style: var(--border-style);
+        border-color: var(--main-border-color);
+        text-align: center;
+    }
+
+    #menu {
+        display: block;
+        float: right;
+        width: 30%;
+    }
+    #menu_switch_icon {
+        display: none;
+    }
+
+    #main {
+        float: left;
+        width: 70%;
+        border: var(--border-thickness);
+        border-left-style: var(--border-style);
+        border-color: var(--main-border-color);
+    }  
+}
