@@ -22,12 +22,12 @@ a:visited {
 }
 
 #logo{
-    padding: 5px 10px 0px 10px;
+    padding: 5px 10px 0px 5px;
     border: black 1px solid;
     border-radius: 45px;
     display: inline-block;
     position: absolute;
-    background-color: cornflowerblue;
+    background-color: transparent;
 }
 #logo-title {
     float: right;
@@ -36,12 +36,10 @@ a:visited {
     padding-left: 10px;
     padding-right: 5px;
 }
-#logo-dropdown-menu-icon {
+#logo-menu-toggle {
     float: left;
 }
-.phantom-place-holder{
-    margin-bottom: 65px;
-}
+
 .icon{
     width: 35px;
     height: 35px;
@@ -52,18 +50,19 @@ a:visited {
     color: blue;
 }
 #menu{
-    padding: 5px;
-    border: black 1px solid;
-    border-radius: 45px;
+    padding: 65px 5px 5px 5px;
     display: inline-block;
     position: absolute;
-    background-color: gray;
+    margin-top: 0px;
+    transition:visibility 1s;
+}
+.menu-item{
+    opacity: 1;
+    visibility: visible;
+    transition:visibility 1s, opacity 0.5s linear;
 }
 #menu div{
-    /*margin-top: 5px;*/
-}
-.hidden-text{
-    display: none;
+    margin-top: 5px;
 }
 
 .selected{
@@ -83,31 +82,28 @@ a:visited {
     /* For large devices: */
 
     #menu{
-        padding: 5px 5px 0px 10px;
-        border: black 1px solid;
-        border-radius: 45px;
+        padding: 5px 5px 0px 225px;
         display: inline-block;
         position: absolute;
     }
     #menu div{
         float: left;
-        margin-top: .1px;
+        margin-top: 0px;
     }
     #menu .menu-item{
-                padding-left: 10px;
-    }
-    .phantom-place-holder{
-        margin-left: 225px;
-        margin-bottom: 0px;
+        padding-left: 10px;
     }
     
     .hidden-text{
-        display: none;
-        padding: 10px;
+        visibility: hidden;
+        margin-left: 17.5px;
+        border-left: black 1px solid;
+        border-bottom: black 1px solid;
+        padding-left: 5px;
         position: absolute;
     }
-    .menu-item img:hover + .hidden-text{
-        display: block;
+    .icon:hover + .hidden-text{
+        visibility: visible;
     }
     
     #content{
