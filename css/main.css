@@ -22,33 +22,42 @@ a:visited {
 }
 
 #logo{
-    padding: 5px 10px 0px 5px;
+    padding: 0px 0px 0px 0px;
     border: black 1px solid;
-    border-radius: 45px;
+    border-radius: 5px;
     display: inline-block;
     position: absolute;
-    background-color: transparent;
+    background-color: #0066ff;
 }
 #logo-title {
     float: right;
     font-size: 35px;
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 5px;
+    padding-top: 12.5px;
+    /*padding-left: 10px;*/
+    padding-right: 15px;
+    color: black;
 }
 #logo-menu-toggle {
     float: left;
+    cursor: pointer;
 }
 
 .icon{
     width: 35px;
     height: 35px;
-    padding: 5px;
-    border: black 1px solid;
-    border-radius: 45px;
-    background-color: white;
-    color: blue;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #999999;
 }
+.menu-toggle{
+    padding-top: 15px;
+    background-color: transparent;
+}
+.selected{
+    background-color: #666666;
+    border: black 1px solid;    
+}
+
 #menu{
     padding: 65px 5px 5px 5px;
     display: inline-block;
@@ -62,12 +71,13 @@ a:visited {
     transition:visibility 1s, opacity 0.5s linear;
 }
 #menu div{
-    margin-top: 5px;
+    /*margin-top: 5px;*/
+}
+.hidden-text{
+    display: none;
+    visibility: hidden;
 }
 
-.selected{
-    background-color: cornflowerblue;
-}
 
 #content{
     margin: 0;
@@ -104,6 +114,8 @@ a:visited {
     }
     .icon:hover + .hidden-text{
         visibility: visible;
+        display: block;
+        
     }
     
     #content{
