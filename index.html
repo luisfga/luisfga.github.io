@@ -9,31 +9,38 @@
     </head>
     
     <body>
-        <div id="logo-container">
-            <div id="logo">
-                <div id="logo-menu-toggle" onclick="toggleMenu()"><img src="images/icons/menu-bars.png" class="menu-toggle"/></div>
-                <div id="logo-title">luisfga</div>
+        <div class="navbar">
+            <div class="nav-top">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <div class="menu-icon-bars"></div>
+                    <div class="menu-icon-bars"></div>
+                    <div class="menu-icon-bars"></div>
+                </div>
+                <div class="logo">luisfga</div>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="menu-item selected" onclick="load('home');setSelected(this);">
+                    <div class="menu-icon"><img src="images/icons/home.png" class="menu-icon-img"/></div>
+                    <div class="menu-item-text">Home</div>
+                </div>
+                <div class="menu-item" onclick="load('cv');setSelected(this);">
+                    <div class="menu-icon"><img src="images/icons/cv.png" class="menu-icon-img"/></div>
+                    <div class="menu-item-text">Currículo</div>
+                </div>
+                <div class="menu-item" onclick="load('java');setSelected(this);">
+                    <div class="menu-icon"><img src="images/icons/java.png" class="menu-icon-img"/></div>
+                    <div class="menu-item-text">Java</div>
+                </div>
             </div>
         </div>
-        <div id="menu">
-            <div class="menu-item">
-                <img src="images/icons/home.png" class="icon selected" onclick="load('home');setSelected(this);"/>
-                <div class="hidden-text">Home</div>
-            </div>
-            <div class="menu-item">
-                <img src="images/icons/cv.png" class="icon" onclick="load('cv');setSelected(this);"/>
-                <div class="hidden-text">Currículo</div>
-            </div>
-            <div class="menu-item">
-                <img src="images/icons/java.png" class="icon" onclick="load('java');setSelected(this);"/>
-                <div class="hidden-text">Java</div>
-            </div>
-        </div>
+        
         <div id="content"></div>
+        
     </body>
     <script>
         function load(page){
-            var xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            let xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             
             if(page === 'home'){
                 xhr.open("get", "pages/home.html", true);
@@ -47,7 +54,7 @@
             
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    var content = document.getElementById("content");
+                    let content = document.getElementById("content");
                     content.innerHTML = xhr.responseText;
                 } 
             }
@@ -55,23 +62,28 @@
         }
         
         function setSelected(newSelectedItem){
-            var exSelected = document.getElementsByClassName("selected");
+            let exSelected = document.getElementsByClassName("selected");
             exSelected[0].classList.remove("selected");
             newSelectedItem.classList.add("selected");
+            
+            let isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
+            if(isSmallScreen){
+                toggleMenu();
+            }
         }
 
         function toggleMenu() {
-            let menu = document.getElementById("menu");
             if (isItemsHidden()){
                 itemsFade(getItemsMenu(),"visible");
-                
             } else {
                 itemsFade(getItemsMenu(),"hidden");
             }
         }
 
         function isItemsHidden(){
-            return getItemsMenu()[0].style.getPropertyValue("visibility")==="hidden";
+            console.log("isItemsHidden? " + getItemsMenu()[0].style.visibility);
+            return getItemsMenu()[0].style.visibility==="hidden" 
+                    || getItemsMenu()[0].style.visibility===""; //fix para primeira amostragem em telas pequenas
         }
         
         function getItemsMenu(){
