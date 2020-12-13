@@ -1,4 +1,6 @@
-.content-wraper{}
+.content-wraper{
+    padding: 0px 15px 0px 15px;
+}
 .sections-container{}
 
 .section{
@@ -32,6 +34,7 @@
 @media only screen and (min-width: 600px) {
 
     .content-wraper{
+        padding: 30px 15px 30px 15px;
         width: 100%;
         margin-left: 30px;
     }
@@ -73,10 +76,6 @@
         font-size: x-large;
     }
     
-    #content{
-        padding: 0px;
-        padding-top: 100px;
-    }
 }
 
 @media only screen and (min-width: 800px) {

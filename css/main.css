@@ -77,8 +77,7 @@ a:visited {text-decoration: none;}
 }
 
 #content{
-    padding: 50px;
-    padding-top: 60px;
+    padding: 50px 0px 50px 0px;
     text-justify: distribute;
 }
 
