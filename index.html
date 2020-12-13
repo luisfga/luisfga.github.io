@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" media="all" href="css/main.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/sections.css">
         <link rel="icon" type="image/png" href="images/favicon.ico"/>
     </head>
     
@@ -43,7 +44,7 @@
             let xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             
             if(page === 'home'){
-                xhr.open("get", "pages/home.html", true);
+                xhr.open("get", "home.html", true);
             } else if(page === 'cv'){
                 xhr.open("get", "pages/cv.html", true);
             } else if(page === 'java'){
