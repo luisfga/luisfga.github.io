@@ -1,9 +1,10 @@
-.sections-container{
-    
-}
+.content-wraper{}
+.sections-container{}
+
 .section{
     margin-top: 25px;
     width: 100%;
+    cursor: pointer;
 }
 
 .section-thumbnail{
@@ -15,54 +16,78 @@
 }
 .section-description{
     width: 100%;
-    background-color: lightgray;
+    background-color: #999999;
     overflow: hidden;
     transition: .5s ease;
 }
-.text-header{
+.sec-txt-header{
     font-weight: bold;
     font-size: larger;
 }
+.sec-text-wrp{
+    padding: 15px;
+    font-weight: bold;
+}
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
+
+    .content-wraper{
+        width: 100%;
+        margin-left: 30px;
+    }
+    
     .sections-container{
-        margin-left: 15px;
         width: 100%;
         display: flex;
-        justify-content: space-around;
-        align-items: stretch;
+        justify-content: flex-start;
         flex-wrap: wrap;
         flex-direction: row;
+        float: right;
     }
     .section{
-        display: flex;
         margin: 20px;
-        max-width: 25%;
+        max-width: 40%;
         position: relative;
     }
     .section:hover .section-description{
         height: auto;
-        opacity: .8;
     }
     .section-thumbnail{
         width: 100%;
     }
     /*.thumbnail precisa estar em uma <img>*/
     .thumbnail{
-        display: flex;
+
     }
     .section-description{
         position: absolute;
         bottom: 0;
         height: 0;
         width: 100%;
-        background-color: white;
         overflow: hidden;
         transition: .5s ease;
+        opacity: .95;
+    }
+    .sec-txt-header{
+        font-weight: bold;
+        font-size: x-large;
     }
     
     #content{
         padding: 0px;
         padding-top: 100px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    .content-wraper{
+        margin-left: 120px;
+    }
+    
+    .section{
+        margin: 20px;
+        max-width: 25%;
+        position: relative;
     }
 }

@@ -17,7 +17,7 @@
                     <div class="menu-icon-bars"></div>
                     <div class="menu-icon-bars"></div>
                 </div>
-                <div class="logo">luisfga</div>
+                <div class="logo" onclick="load('home');">luisfga</div>
             </div>
             
             <div class="nav-menu">
@@ -33,6 +33,10 @@
                     <div class="menu-icon"><img src="images/icons/java.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">Java</div>
                 </div>
+                <div class="menu-item" onclick="load('netbsd');setSelected(this);">
+                    <div class="menu-icon"><img src="images/icons/netbsd.png" class="menu-icon-img"/></div>
+                    <div class="menu-item-text">NetBSD</div>
+                </div>
             </div>
         </div>
         
@@ -43,12 +47,8 @@
         function load(page){
             let xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             
-            if(page === 'home'){
-                xhr.open("get", "home.html", true);
-            } else if(page === 'cv'){
-                xhr.open("get", "pages/cv.html", true);
-            } else if(page === 'java'){
-                xhr.open("get", "pages/java.html", true);
+            if(page === 'home' || page === 'cv' || page === 'java' || page === 'netbsd'){
+                xhr.open("get", "pages/"+page+".html", true);
             } else {
                 return;
             }
@@ -67,7 +67,7 @@
             exSelected[0].classList.remove("selected");
             newSelectedItem.classList.add("selected");
             
-            let isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
+            let isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
             if(isSmallScreen){
                 toggleMenu();
             }
