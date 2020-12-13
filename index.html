@@ -64,15 +64,17 @@
             setSelected(page);
         }
         
+        function isSmallScreen(){
+            return window.matchMedia("(max-width: 600px)").matches;
+        }
+        
         function setSelected(selectThis){
             let exSelected = document.getElementsByClassName("selected");
             exSelected[0].classList.remove("selected");
             let newSelectedItem = document.getElementById(selectThis);
             newSelectedItem.classList.add("selected");
             
-            let isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
-            console.log("Matches? " + isSmallScreen);
-            if(isSmallScreen){
+            if(isSmallScreen()){
                 itemsFade(getItemsMenu(), "hidden");
             }
         }
@@ -110,6 +112,17 @@
 
         }
 
-        load('home');
+        window.onload = function() { 
+            load('home');
+        }; 
+           
+        window.onresize = function() { 
+           if (isSmallScreen()){
+               itemsFade(getItemsMenu(),"hidden");
+           } else {
+               itemsFade(getItemsMenu(),"visible");
+           }
+           
+        }; 
     </script>
 </html>
