@@ -71,8 +71,9 @@
             newSelectedItem.classList.add("selected");
             
             let isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
+            console.log("Matches? " + isSmallScreen);
             if(isSmallScreen){
-                toggleMenu();
+                itemsFade(getItemsMenu(), "hidden");
             }
         }
 
