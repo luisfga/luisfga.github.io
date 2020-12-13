@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" media="all" href="css/main.css">
         <link rel="stylesheet" type="text/css" media="all" href="css/sections.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/texts.css">
         <link rel="icon" type="image/png" href="images/favicon.ico"/>
     </head>
     
@@ -17,23 +18,23 @@
                     <div class="menu-icon-bars"></div>
                     <div class="menu-icon-bars"></div>
                 </div>
-                <div class="logo" onclick="load('home');">luisfga</div>
+                <div class="logo" onclick="load('home');">#luisfga</div>
             </div>
             
             <div class="nav-menu">
-                <div class="menu-item selected" onclick="load('home');setSelected(this);">
+                <div id="home" class="menu-item selected" onclick="load('home');">
                     <div class="menu-icon"><img src="images/icons/home.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">Home</div>
                 </div>
-                <div class="menu-item" onclick="load('cv');setSelected(this);">
+                <div id="cv" class="menu-item" onclick="load('cv');">
                     <div class="menu-icon"><img src="images/icons/cv.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">Currículo</div>
                 </div>
-                <div class="menu-item" onclick="load('java');setSelected(this);">
+                <div id="java" class="menu-item" onclick="load('java');">
                     <div class="menu-icon"><img src="images/icons/java.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">Java</div>
                 </div>
-                <div class="menu-item" onclick="load('netbsd');setSelected(this);">
+                <div id="netbsd" class="menu-item" onclick="load('netbsd');">
                     <div class="menu-icon"><img src="images/icons/netbsd.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">NetBSD</div>
                 </div>
@@ -60,11 +61,13 @@
                 } 
             }
             xhr.send();
+            setSelected(page);
         }
         
-        function setSelected(newSelectedItem){
+        function setSelected(selectThis){
             let exSelected = document.getElementsByClassName("selected");
             exSelected[0].classList.remove("selected");
+            let newSelectedItem = document.getElementById(selectThis);
             newSelectedItem.classList.add("selected");
             
             let isSmallScreen = window.matchMedia("(max-width: 600px)").matches;

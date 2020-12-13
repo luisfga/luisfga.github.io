@@ -1,7 +1,8 @@
 * {box-sizing:   border-box;}
 body{
     font-family: 'Courier', monospace; padding: 0; margin: 0;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
 }
 h1,h2,h3,h4,h5,h6{margin: 0;}
@@ -91,16 +92,11 @@ a:visited {text-decoration: none;}
     .nav-top{
         float: left;
         justify-content: center;
-        background-color: #0099ff;
         height: fit-content;
         border-bottom: black 2px solid;
     }
     .menu-toggle{
         display: none;
-    }
-    .logo{
-        margin-left: 20px;
-        background-color: lightseagreen;
     }
     
     /* NAVBAR MENU ROW */
