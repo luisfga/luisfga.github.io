@@ -1,0 +1,23 @@
+.content-wraper{
+    padding: 30px 10px 30px 30px;
+    text-justify: distribute;
+}
+
+.cv-section-title{
+    font-weight: bolder;
+    font-size: large;
+    margin-top: 40px;
+    border: black 1px solid;
+    border-bottom: 0;
+
+}
+.cv-data{
+    border: black 1px solid;
+    padding: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 600px) {
+}

@@ -4,10 +4,12 @@
         <title>LuisFGA</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" media="all" href="css/main.css">
-        <link rel="stylesheet" type="text/css" media="all" href="css/sections.css">
-        <link rel="stylesheet" type="text/css" media="all" href="css/texts.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/index.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/home.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/cv.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/generic.css">
         <link rel="icon" type="image/png" href="images/favicon.ico"/>
+        <script type="text/javascript" src="javascript/main.js"></script>
     </head>
     
     <body>
@@ -18,23 +20,23 @@
                     <div class="menu-icon-bars"></div>
                     <div class="menu-icon-bars"></div>
                 </div>
-                <div class="logo" onclick="load('home');">#luisfga</div>
+                <div class="logo" onclick="load('pages/home');">#luisfga</div>
             </div>
             
             <div class="nav-menu">
-                <div id="home" class="menu-item selected" onclick="load('home');">
+                <div id="home" class="menu-item selected" onclick="load('pages/home');">
                     <div class="menu-icon"><img src="images/icons/home.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">Home</div>
                 </div>
-                <div id="cv" class="menu-item" onclick="load('cv');">
+                <div id="cv" class="menu-item" onclick="load('pages/cv');">
                     <div class="menu-icon"><img src="images/icons/cv.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">Currículo</div>
                 </div>
-                <div id="java" class="menu-item" onclick="load('java');">
+                <div id="java" class="menu-item" onclick="load('pages/java');">
                     <div class="menu-icon"><img src="images/icons/java.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">Java</div>
                 </div>
-                <div id="netbsd" class="menu-item" onclick="load('netbsd');">
+                <div id="netbsd" class="menu-item" onclick="load('pages/netbsd');">
                     <div class="menu-icon"><img src="images/icons/netbsd.png" class="menu-icon-img"/></div>
                     <div class="menu-item-text">NetBSD</div>
                 </div>
@@ -42,87 +44,5 @@
         </div>
         
         <div id="content"></div>
-        
     </body>
-    <script>
-        function load(page){
-            let xhr = typeof XMLHttpRequest !== 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            
-            if(page === 'home' || page === 'cv' || page === 'java' || page === 'netbsd'){
-                xhr.open("get", "pages/"+page+".html", true);
-            } else {
-                return;
-            }
-            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    let content = document.getElementById("content");
-                    content.innerHTML = xhr.responseText;
-                } 
-            }
-            xhr.send();
-            setSelected(page);
-        }
-        
-        function isSmallScreen(){
-            return window.matchMedia("(max-width: 600px)").matches;
-        }
-        
-        function setSelected(selectThis){
-            let exSelected = document.getElementsByClassName("selected");
-            exSelected[0].classList.remove("selected");
-            let newSelectedItem = document.getElementById(selectThis);
-            newSelectedItem.classList.add("selected");
-            
-            if(isSmallScreen()){
-                itemsFade(getItemsMenu(), "hidden");
-            }
-        }
-
-        function toggleMenu() {
-            if (isItemsHidden()){
-                itemsFade(getItemsMenu(),"visible");
-            } else {
-                itemsFade(getItemsMenu(),"hidden");
-            }
-        }
-
-        function isItemsHidden(){
-            console.log("isItemsHidden? " + getItemsMenu()[0].style.visibility);
-            return getItemsMenu()[0].style.visibility==="hidden" 
-                    || getItemsMenu()[0].style.visibility===""; //fix para primeira amostragem em telas pequenas
-        }
-        
-        function getItemsMenu(){
-            return document.getElementsByClassName("menu-item");
-        }
-        
-        function itemsFade(items, visibility){
-            if (visibility === "hidden"){
-                for(let i=0; i<items.length;i++){
-                    items[i].style.setProperty("visibility", "hidden");
-                    items[i].style.setProperty("opacity", "0");
-                }
-            } else {
-                for(let i=0; i<items.length;i++){
-                    items[i].style.setProperty("visibility", "visible");
-                    items[i].style.setProperty("opacity", "1");
-                }                
-            }
-
-        }
-
-        window.onload = function() { 
-            load('home');
-        }; 
-           
-        window.onresize = function() { 
-           if (isSmallScreen()){
-               itemsFade(getItemsMenu(),"hidden");
-           } else {
-               itemsFade(getItemsMenu(),"visible");
-           }
-           
-        }; 
-    </script>
 </html>
