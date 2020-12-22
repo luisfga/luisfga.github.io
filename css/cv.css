@@ -3,6 +3,11 @@
     text-justify: distribute;
 }
 
+.print-button{
+    float: right;
+    cursor: pointer;
+}
+
 .cv-section-title{
     font-weight: bolder;
     font-size: large;

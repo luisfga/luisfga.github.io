@@ -59,8 +59,21 @@ function itemsFade(items, visibility){
 
 }
 
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+    return decodeURIComponent(name[1]);
+}
+
+function checkOnLoad(){
+    let requestedSection = get('section');
+    console.log(requestedSection);
+    if (requestedSection === 'cv') 
+        load('pages/'+requestedSection);
+    else load('pages/home');
+}
+        
 window.onload = function() { 
-    load('pages/home');
+    checkOnLoad();
 }; 
 
 window.onresize = function() { 
