@@ -3,6 +3,10 @@
     text-justify: distribute;
 }
 
+.legenda{
+    font-size: small;
+}
+
 @media only screen and (min-width: 600px) {
 
 }
