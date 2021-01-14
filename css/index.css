@@ -1,12 +1,14 @@
 * {box-sizing:   border-box;}
 body{
-    font-family: 'Courier', monospace; padding: 0; margin: 0;
+    font-family: 'Courier', monospace; 
+    padding: 0; 
+    margin: 0;
     overflow-x: hidden;
     overflow-y: scroll;
-
 }
 h1,h2,h3,h4,h5,h6{margin: 0;}
-a {text-decoration: none;}
+a {text-decoration: none; color: #4099FF; font-weight: bold;}
+a:hover{text-decoration: underline;}
 a:visited {text-decoration: none;}
 
 
@@ -137,10 +139,35 @@ a:visited {text-decoration: none;}
 @media only screen and (min-width: 800px) {
     /* For large devices: */
 
+    #content{
+        padding: 50px 0px 50px 0px;
+        text-justify: distribute;
+        display: flex;
+    }
 }
 
-@media print {    
+@page { 
+    size: auto;   /* auto is the initial value */ 
+
+    /* this affects the margin in the printer settings */ 
+    margin: 15mm 10mm 15mm 10mm;  
+} 
+
+@media print {
+    
     .no-print, .no-print * {
         display: none !important;
+    }
+    
+    .printing-page-brake{
+        page-break-after: always;
+    }
+    
+    body{
+        font-family: 'Rockwell', serif; 
+    }
+    
+    #content{
+        padding: 0;
     }
 }

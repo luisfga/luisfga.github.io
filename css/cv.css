@@ -3,26 +3,93 @@
     text-justify: distribute;
 }
 
+.caput{
+    width: 100%;
+}
+
+.caput-title-block{
+    display: block;
+}
+
+.caput-title{
+    font-size: 1.5em;
+}
+
+.caput-nome{
+    font-size: 1.25em;
+}
+
+.caput-contato{
+    margin-top: 15px;
+    font-size: 0.85em;
+}
+
+.highlith-link{
+    font-size: 1.25em;
+}
+
 .print-button{
-    float: right;
     cursor: pointer;
 }
 
 .cv-section-title{
     font-weight: bolder;
     font-size: large;
-    margin-top: 40px;
+    margin-top: 20px;
     border: black 1px solid;
     border-bottom: 0;
+    padding: 5px;
 
 }
 .cv-data{
     border: black 1px solid;
-    padding: 10px;
+    padding: 0 10px 0 10px;;
 }
 
 @media only screen and (min-width: 600px) {
+
+    .caput{
+        display: flex;
+    }   
+    
+    .caput-title-block{
+        float: left;
+        width: 50%;
+    }
+    
+    .caput-contato{
+        float: right;
+        text-align: right;
+        margin-top: 0;
+        width: 50%;
+    }
+    
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
+
+}
+
+@media print {
+    
+    .content-wraper{
+        padding: 0;
+    }
+    
+    .caput{
+        display: flex;
+    }   
+    
+    .caput-title-block{
+        float: left;
+        width: 50%;
+    }
+    
+    .caput-contato{
+        float: right;
+        text-align: right;
+        margin-top: 0;
+        width: 50%;
+        font-size: 0.75em;
+    }
 }

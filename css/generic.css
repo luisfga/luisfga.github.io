@@ -1,15 +1,77 @@
+.sub-section {
+    padding: 10px 15px 15px 15px;
+    margin: 15px 10px 15px 15px;
+    border: black 0.032em solid;
+    border-radius: 5px;
+}
 .text-wraper{
-    padding: 30px 10px 30px 30px;
     text-justify: distribute;
 }
 
-.legenda{
+.entry-div{
+    margin-top: 10px;
+    /*margin-bottom: 20px;*/
+}
+.entry-title{
+    padding: 5px 5px 0 5px;
+}
+.entry-text{
+    padding: 5px;
+}
+.entry-link{
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding: 0 0 5px 5px;
+}
+.entry-footer-note{
     font-size: small;
 }
 
-@media only screen and (min-width: 600px) {
+.main-section-left{
+}
 
+.secondary-section-right{
+}
+
+.tiny-icon{
+    width: 15px;
+    height: 15px;
+}
+
+.devnote {
+    padding: 5px;
+    background-color: #bbbbbb;
+    border-radius: 1px;
+    font-size: 0.9em;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.devnote:hover{
+    background-color: #4099FF;
 }
 
 @media only screen and (min-width: 600px) {
+
+    .warning-text{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    
+    .sub-section {
+        margin: 15px 0px 15px 15px;
+    }
+    
+    .main-section-left{
+        width: 75%;
+    }
+
+    .secondary-section-right{
+        width: 25%;
+    }
+    
+    .devnote {
+        background-color: #cccccc;
+    }
 }
