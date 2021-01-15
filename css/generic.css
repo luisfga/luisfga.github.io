@@ -1,11 +1,6 @@
-.sub-section {
-    padding: 10px 15px 15px 15px;
-    margin: 15px 10px 15px 15px;
-    border: black 0.032em solid;
-    border-radius: 5px;
-}
 .text-wraper{
     text-justify: distribute;
+    margin: 30px;
 }
 
 .entry-div{
@@ -27,51 +22,14 @@
     font-size: small;
 }
 
-.main-section-left{
-}
-
-.secondary-section-right{
-}
-
 .tiny-icon{
     width: 15px;
     height: 15px;
 }
 
-.devnote {
-    padding: 5px;
-    background-color: #bbbbbb;
-    border-radius: 1px;
-    font-size: 0.9em;
-    margin-top: 5px;
-    cursor: pointer;
-}
-.devnote:hover{
-    background-color: #4099FF;
-}
-
 @media only screen and (min-width: 600px) {
-
-    .warning-text{
-        display: none;
-    }
 }
 
 @media only screen and (min-width: 800px) {
-    
-    .sub-section {
-        margin: 15px 0px 15px 15px;
-    }
-    
-    .main-section-left{
-        width: 75%;
-    }
-
-    .secondary-section-right{
-        width: 25%;
-    }
-    
-    .devnote {
-        background-color: #cccccc;
-    }
+   
 }
