@@ -65,9 +65,11 @@ function get(name){
 }
 
 function checkOnLoad(){
-    let requestedSection = get('section');
+    let requestedSection = get('page');
     console.log(requestedSection);
-    if (requestedSection === 'cv' || requestedSection === 'java') 
+    if (requestedSection === 'cv' 
+//            || requestedSection === 'java'
+            ) 
         load('pages/'+requestedSection);
     else 
         load('pages/home');
