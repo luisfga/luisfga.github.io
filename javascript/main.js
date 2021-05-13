@@ -17,6 +17,7 @@ function isSmallScreen(){
 }
 
 function setSelected(selectThis){
+//    console.log("Selecting -> " + selectThis);
     let exSelected = document.getElementsByClassName("selected");
     exSelected[0].classList.remove("selected");
     let newSelectedItem = document.getElementById(selectThis);
