@@ -1,0 +1,178 @@
+* {box-sizing:   border-box;}
+body{
+    font-family: 'Courier', monospace; 
+    padding: 0; 
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+    --bg-color: #cccccc;
+    
+    background-color: var(--bg-color);
+}
+h1,h2,h3,h4,h5,h6{margin: 0;}
+a {text-decoration: none; color: #4099FF; font-weight: bold;}
+a:hover{text-decoration: underline;}
+a:visited {text-decoration: none;}
+
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    display: table;
+    z-index: 1;/*fix - content carregado via ajax estava se sobrepondo ao rolar scroll*/
+}
+
+/* NAVBAR TOP ROW */
+.nav-top{
+    display: table-row;
+    text-align: center;
+    background-color: var(--bg-color);
+    height: 40px;
+}
+.menu-toggle {
+    float: left;
+    cursor: pointer;
+    margin-left: 5px;
+    position: absolute;
+}
+.menu-icon-bars{
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+.logo{
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* NAVBAR MENU ROW */
+.nav-menu{
+    margin-left: 5px;
+    height: 0;
+}
+.menu-item{
+    visibility: hidden;
+    opacity: 1;
+    transition:visibility 1s, opacity 0.5s linear;
+    border-bottom: gray 1px solid;
+    background-color: var(--bg-color);
+    cursor: pointer;
+}
+.selected{
+    background-color: #cccccc;
+}
+.menu-icon{
+    width: 35px;
+    height: 35px;
+    display: table-cell;
+}
+.menu-icon-img{ 
+    width: inherit;
+    height: inherit;
+    vertical-align: middle;
+ }
+.menu-item:hover{
+    background-color: #999999;
+}
+.menu-item-text{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 15px;
+/*    text-align: center;*/
+}
+
+#content{
+    padding: 50px 0px 50px 0px;
+    text-justify: distribute;
+}
+
+@media only screen and (min-width: 600px) {
+
+    .navbar{
+        display: flex;
+        align-items: center;
+        background-color: var(--bg-color);
+    }
+    .nav-top{
+        float: left;
+        justify-content: center;
+        height: fit-content;
+        border-bottom: black 2px solid;
+    }
+    .menu-toggle{
+        display: none;
+    }
+    
+    /* NAVBAR MENU ROW */
+    .nav-menu{
+        float: left;
+        margin-left: 100px;
+        height: 20px;
+    }
+    .menu-item{
+        visibility: visible;
+        opacity: 1;
+        transition:visibility 1s, opacity 0.5s linear;
+        border-bottom: 0;
+        float: left;
+        margin-right: 10px;
+        color: black;
+    }
+    .selected{
+        background-color: transparent;
+        border-bottom: black 1px solid;
+    }
+    .menu-icon{
+        width: 20px;
+        height: 20px;
+        display: none;
+    }
+    .menu-icon-img{ 
+     }
+    .menu-item:hover{
+        background-color: #cccccc;
+    }
+    .menu-item-text{
+        padding-left: 0px;
+    }
+    
+}
+
+@media only screen and (min-width: 800px) {
+    /* For large devices: */
+
+    #content{
+        padding: 50px 0px 50px 0px;
+        text-justify: distribute;
+        display: flex;
+    }
+}
+
+@page { 
+    size: auto;   /* auto is the initial value */ 
+
+    /* this affects the margin in the printer settings */ 
+    margin: 15mm 10mm 15mm 10mm;  
+} 
+
+@media print {
+    
+    .no-print, .no-print * {
+        display: none !important;
+    }
+    
+    .printing-page-brake{
+        page-break-after: always;
+    }
+    
+    body{
+        font-family: 'Rockwell', serif;
+        --bg-color: white;
+    }
+    
+    #content{
+        padding: 0;
+    }
+}
