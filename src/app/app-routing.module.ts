@@ -7,6 +7,7 @@ import { UnixComponent } from './unix/unix.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'java', component: JavaComponent },
     { path: 'resume', component: ResumeComponent },
     { path: 'unix', component: UnixComponent },
