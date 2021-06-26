@@ -6,8 +6,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { UnixComponent } from './unix/unix.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    { path: '', component: HomeComponent },
     { path: 'java', component: JavaComponent },
     { path: 'resume', component: ResumeComponent },
     { path: 'unix', component: UnixComponent },
